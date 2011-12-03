@@ -18,7 +18,7 @@
      <preference name="permissions" value="none"/>
     
      <!-- if a single icon is specified then Build will use it for all platforms -->
-    <icon src="icons/icon.png" /<name />
+    <icon src="icons/icon.png" />
 
 	<!-- iOS requires specific dimensions for splash screens; classic iPhone screens, Retina 
       Screens, and iPad screen respectively -->
