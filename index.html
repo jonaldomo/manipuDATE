@@ -69,7 +69,6 @@
 			var secondsLeft = secondsLeftPieces[0];
 			document.getElementById("count").innerText = "Days: " + daysLeft + ", Hours: " + hoursLeft + ", Minutes: " + minutesLeft + ", Seconds: " + secondsLeft;
 		}
-		console.info(localStorage);
 		date = new Date();
 		function load(quickPick){
 			reset();
@@ -191,6 +190,15 @@
 				   <option value=""></option>
 				</select>
 				<a href="#" onclick="javascript:reset();" data-role="button" data-iconpos="bottom"  data-icon="back">Reset</a>
+			<script type="text/javascript">
+			var admob_vars = {
+			 pubid: 'a14ed9872a58410', // publisher id
+			 bgcolor: '7F90AA', // background color (hex)
+			 text: 'FFFFFF', // font-color (hex)
+			 test: true // test mode, set to false to receive live ads
+			};
+			</script>
+			<script type="text/javascript" src="http://mmv.admob.com/static/iphone/iadmob.js"></script>
 			</div><!-- /content -->
 		
 			<div data-role="footer">
@@ -218,6 +226,15 @@
 				</form>	
 				<a href="#" data-role="button" data-icon="check" onclick="window['intervalId'] = setInterval('countdown()', 1000);">Countdown!</a>
 				<a href="#" onclick="javascript:resetCountdown();" data-role="button" data-iconpos="bottom"  data-icon="back">Reset</a>
+			<script type="text/javascript">
+			var admob_vars = {
+			 pubid: 'a14ed9872a58410', // publisher id
+			 bgcolor: '7F90AA', // background color (hex)
+			 text: 'FFFFFF', // font-color (hex)
+			 test: true // test mode, set to false to receive live ads
+			};
+			</script>
+			<script type="text/javascript" src="http://mmv.admob.com/static/iphone/iadmob.js"></script>
 			</div><!-- /content -->
 		
 				<div data-role="footer">
