@@ -168,34 +168,28 @@
 	<body onload="javascript:getCurrentTime()">
 		<div data-role="page" id="one" data-title="manipuDATE Calculator">
 			<div data-role="header">
-				<h1>manipuDATE Calculator</h1>
+				<h1>manipuDATE</h1>
 			</div><!-- /header -->
 		
 			<div data-role="content">	
-				<h1><span id="currentTime">
-				</span></h1>
+				<h2><span id="currentTime">
+				</span></h2>
 				
 				<table>
-					<tr><td><h3>Year</h3></td><td><a href="#" class="button" data-role="button" data-icon="plus" onclick="javascript:addYear(1);">Add</a></td><td><h2><span id="year">0</h2></span></td><td><a href="#" class="button" data-role="button" data-icon="minus" onclick="javascript:subtractYear(1);">Subtract</a></td></tr>
-					<tr><td><h3>Month</h3></td><td><a href="#" class="button" data-role="button" data-icon="plus" onclick="javascript:addMonth(1);">Add</a></td><td><h2><span id="month">0</span></h2></td><td><a href="#" class="button" data-role="button" data-icon="minus" onclick="javascript:subtractMonth(1);">Subtract</a></td></tr>
-					<tr><td><h3>Day</h3></td><td><a href="#" class="button" data-role="button" data-icon="plus" onclick="javascript:addDay(1);">Add</a></td><td><h2><span id="day">0</span></h2></td><td><a href="#" class="button" data-role="button" data-icon="minus" onclick="javascript:subtractDay(1);">Subtract</a></td></tr>
-					<tr><td><h3>Hour</h3></td><td><a href="#" class="button" data-role="button" data-icon="plus" onclick="javascript:addHour(1);">Add</a></td><td><h2><span id="hour">0</span></h2></td><td><a href="#" class="button" data-role="button" data-icon="minus" onclick="javascript:subtractHour(1);">Subtract</a></td></tr>
-					<tr><td><h3>Minute</h3></td><td><a href="#" class="button" data-role="button" data-icon="plus" onclick="javascript:addMinute(1);">Add</a></td><td><h2><span id="minute">0</span></h2></td><td><a href="#" class="button" data-role="button" data-icon="minus" onclick="javascript:subtractMinute(1);">Subtract</a></td></tr>
-					<tr><td><h3>Second</h3></td><td><a href="#" class="button" data-role="button" data-icon="plus" onclick="javascript:addSecond(1);">Add</a></td><td><h2><span id="second">0</span></h2></td><td><a href="#" class="button" data-role="button" data-icon="minus" onclick="javascript:subtractSecond(1);">Subtract</a></td></tr>
+					<tr><td><h3>Year</h3></td><td><a href="#" class="button" data-role="button" data-icon="plus" onclick="javascript:addYear(1);"></a></td><td><h2><span id="year">0</h2></span></td><td><a href="#" class="button" data-role="button" data-icon="minus" onclick="javascript:subtractYear(1);"></a></td></tr>
+					<tr><td><h3>Month</h3></td><td><a href="#" class="button" data-role="button" data-icon="plus" onclick="javascript:addMonth(1);"></a></td><td><h2><span id="month">0</span></h2></td><td><a href="#" class="button" data-role="button" data-icon="minus" onclick="javascript:subtractMonth(1);"></a></td></tr>
+					<tr><td><h3>Day</h3></td><td><a href="#" class="button" data-role="button" data-icon="plus" onclick="javascript:addDay(1);"></a></td><td><h2><span id="day">0</span></h2></td><td><a href="#" class="button" data-role="button" data-icon="minus" onclick="javascript:subtractDay(1);"></a></td></tr>
+					<tr><td><h3>Hour</h3></td><td><a href="#" class="button" data-role="button" data-icon="plus" onclick="javascript:addHour(1);"></a></td><td><h2><span id="hour">0</span></h2></td><td><a href="#" class="button" data-role="button" data-icon="minus" onclick="javascript:subtractHour(1);"></a></td></tr>
+					<tr><td><h3>Minute</h3></td><td><a href="#" class="button" data-role="button" data-icon="plus" onclick="javascript:addMinute(1);"></a></td><td><h2><span id="minute">0</span></h2></td><td><a href="#" class="button" data-role="button" data-icon="minus" onclick="javascript:subtractMinute(1);"></a></td></tr>
+					<tr><td><h3>Second</h3></td><td><a href="#" class="button" data-role="button" data-icon="plus" onclick="javascript:addSecond(1);"></a></td><td><h2><span id="second">0</span></h2></td><td><a href="#" class="button" data-role="button" data-icon="minus" onclick="javascript:subtractSecond(1);"></a></td></tr>
 				</table>
-				<select name="select-choice-0" id="select-choice-1" onchange="javascript:load(this.selectedIndex);">
-				   <option value="standard">Quick Picks</option>
-				   <option value="pregnancy">Pregnancy</option>
-				   <option value=""></option>
-				   <option value=""></option>
-				</select>
 				<a href="#" onclick="javascript:reset();" data-role="button" data-iconpos="bottom"  data-icon="back">Reset</a>
 			<script type="text/javascript">
 			var admob_vars = {
 			 pubid: 'a14ed9872a58410', // publisher id
 			 bgcolor: '7F90AA', // background color (hex)
 			 text: 'FFFFFF', // font-color (hex)
-			 test: true // test mode, set to false to receive live ads
+			 test: false // test mode, set to false to receive live ads
 			};
 			</script>
 			<script type="text/javascript" src="http://mmv.admob.com/static/iphone/iadmob.js"></script>
@@ -208,7 +202,7 @@
 		
 		<div data-role="page" id="two" data-title="manipuDATE Countdown">
 			<div data-role="header">
-				<h1>manipuDATE Countdown</h1>
+				<h1>manipuDATE</h1>
 			</div><!-- /header -->
 		
 			<div data-role="content">
@@ -231,7 +225,7 @@
 			 pubid: 'a14ed9872a58410', // publisher id
 			 bgcolor: '7F90AA', // background color (hex)
 			 text: 'FFFFFF', // font-color (hex)
-			 test: true // test mode, set to false to receive live ads
+			 test: false // test mode, set to false to receive live ads
 			};
 			</script>
 			<script type="text/javascript" src="http://mmv.admob.com/static/iphone/iadmob.js"></script>
