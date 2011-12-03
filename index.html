@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+	<head>
+		<title>manipuDATE</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+		<script src="mobiscroll-1.5.2.js" type="text/javascript"></script>
+		<link href="mobiscroll-1.5.2.css" rel="stylesheet" type="text/css" />
+	    <script type="text/javascript">
+        $(document).ready(function () {
+            // Date with external button
+            $('#date1').scroller();
+            // Time
+            $('#date2').scroller({ preset: 'time'});
+            // Datetime
+            $('#date3').scroller({ preset: 'datetime' });
+
+
+            $('#date1').scroller('destroy').scroller({ theme: 'ios', mode: 'scroller' });
+            $('#date2').scroller('destroy').scroller({ preset: 'time', theme: 'ios', mode: 'scroller' });
+            $('#date3').scroller('destroy').scroller({ preset: 'datetime', theme: 'ios', mode: 'scroller' });
+            $('#custom').scroller('option', { theme: 'ios', mode: 'scroller' });
+        });
+            
+    	</script>
+
+
+		<script type="text/javascript">
+		function countdown(){
+			var dateToSet = document.getElementById('date1').value;
+			var years = dateToSet.slice(6, 10);
+			var months = dateToSet.slice(0, 2);
+			var days = dateToSet.slice(3, 5);
+			
+			
+			
+			var timeToSet = document.getElementById('date2').value;
+			var hours = timeToSet.slice(0, 2);
+			var minutes = timeToSet.slice(3, 5);
+			var am = timeToSet.slice(6, 8);
+			if(am = "PM" && hours != 12){
+				hours = parseInt(hours) + 12;
+				if(hours == 24){
+					hours = '00';
+				}
+			}
+			if(am = "AM" && hours == 12){
+				hours = 0;
+			}
+			
+			var dateString = years + "/" + months  + "/" + days;
+			var finalTime = hours + ":" + minutes + ":00";
+			var dateTime = dateString + " " + finalTime;
+			var nDifference = new Date(dateTime) - new Date();
+			if(nDifference < 0){
+				alert("Date must be in the future");
+				clearInterval(intervalId);
+			}
+			var one_day = 1000*60*60*24;
+			var daysLeftPieces = (nDifference/one_day).toString().split(".");
+			var daysLeft = daysLeftPieces[0];
+			var hoursLeftPieces = (parseFloat("." + daysLeftPieces[1]) * 24).toString().split(".");
+			var hoursLeft = hoursLeftPieces[0];
+			var minutesLeftPieces = (parseFloat("." + hoursLeftPieces[1]) * 60).toString().split(".");;
+			var minutesLeft = minutesLeftPieces[0];
+			var secondsLeftPieces = (parseFloat("." + minutesLeftPieces[1]) * 60).toString().split(".");;
+			var secondsLeft = secondsLeftPieces[0];
+			document.getElementById("count").innerText = "Days: " + daysLeft + ", Hours: " + hoursLeft + ", Minutes: " + minutesLeft + ", Seconds: " + secondsLeft;
+		}
+		console.info(localStorage);
+		date = new Date();
+		function load(quickPick){
+			reset();
+			switch(quickPick){
+				case 1:
+					addMonth(9);
+					break;
+			}
+		}
+		function getCurrentTime(){
+			document.getElementById("currentTime").innerText = date;
+		}
+		function increase(elementId, amount){
+			var current = document.getElementById(elementId).innerText
+			document.getElementById(elementId).innerText = parseInt(current) + amount
+		}
+		function decrease(elementId, amount){
+			var current = document.getElementById(elementId).innerText
+			document.getElementById(elementId).innerText = parseInt(current) - amount
+		}
+		function addYear(amount){
+			date.setFullYear(date.getFullYear() + amount);
+			document.getElementById("currentTime").innerText = date;
+			increase("year", amount);
+		}
+		function subtractYear(amount){
+			date.setFullYear(date.getFullYear() - amount);
+			document.getElementById("currentTime").innerText = date;
+			decrease("year", amount);
+		}
+		function addMonth(amount){
+			date.setMonth(date.getMonth() + amount);
+			document.getElementById("currentTime").innerText = date;
+			increase("month", amount);
+		}
+		function subtractMonth(amount){
+			date.setMonth(date.getMonth() - amount);
+			document.getElementById("currentTime").innerText = date;
+			decrease("month", amount);
+		}
+		function addDay(amount){
+			date.setDate(date.getDate() + amount);
+			document.getElementById("currentTime").innerText = date;
+			increase("day", amount);
+		}
+		function subtractDay(amount){
+			date.setDate(date.getDate() - amount);
+			document.getElementById("currentTime").innerText = date;
+			decrease("day", amount);
+		}
+		function addHour(amount){
+			date.setHours(date.getHours() + amount);
+			document.getElementById("currentTime").innerText = date;
+			increase("hour", amount);
+		}
+		function subtractHour(amount){
+			date.setHours(date.getHours() - amount);
+			document.getElementById("currentTime").innerText = date;
+			decrease("hour", amount);
+		}
+		function addMinute(amount){
+			date.setMinutes(date.getMinutes() + amount);
+			document.getElementById("currentTime").innerText = date;
+			increase("minute", amount);
+		}
+		function subtractMinute(amount){
+			date.setMinutes(date.getMinutes() - amount);
+			document.getElementById("currentTime").innerText = date;
+			decrease("minute", amount);
+		}		
+		function addSecond(amount){
+			date.setSeconds(date.getSeconds() + amount);
+			document.getElementById("currentTime").innerText = date;
+			increase("second", amount);
+		}
+		function subtractSecond(amount){
+			date.setSeconds(date.getSeconds() - amount);
+			document.getElementById("currentTime").innerText = date;
+			decrease("second", amount);
+		}
+		function reset(){
+			date = new Date();
+			document.getElementById("currentTime").innerText = date;
+			document.getElementById("year").innerText = 0;
+			document.getElementById("month").innerText = 0;
+			document.getElementById("day").innerText = 0;
+			document.getElementById("hour").innerText = 0;
+			document.getElementById("minute").innerText = 0;
+			document.getElementById("second").innerText = 0;
+		}
+		function resetCountdown(){
+			document.getElementById("count").innerText = "";
+			clearInterval(intervalId);
+		}
+		</script>
+	</head>
+	<body onload="javascript:getCurrentTime()">
+		<div data-role="page" id="one" data-title="manipuDATE Calculator">
+			<div data-role="header">
+				<h1>manipuDATE Calculator</h1>
+			</div><!-- /header -->
+		
+			<div data-role="content">	
+				<h1><span id="currentTime">
+				</span></h1>
+				
+				<table>
+					<tr><td><h3>Year</h3></td><td><a href="#" class="button" data-role="button" data-icon="plus" onclick="javascript:addYear(1);">Add</a></td><td><h2><span id="year">0</h2></span></td><td><a href="#" class="button" data-role="button" data-icon="minus" onclick="javascript:subtractYear(1);">Subtract</a></td></tr>
+					<tr><td><h3>Month</h3></td><td><a href="#" class="button" data-role="button" data-icon="plus" onclick="javascript:addMonth(1);">Add</a></td><td><h2><span id="month">0</span></h2></td><td><a href="#" class="button" data-role="button" data-icon="minus" onclick="javascript:subtractMonth(1);">Subtract</a></td></tr>
+					<tr><td><h3>Day</h3></td><td><a href="#" class="button" data-role="button" data-icon="plus" onclick="javascript:addDay(1);">Add</a></td><td><h2><span id="day">0</span></h2></td><td><a href="#" class="button" data-role="button" data-icon="minus" onclick="javascript:subtractDay(1);">Subtract</a></td></tr>
+					<tr><td><h3>Hour</h3></td><td><a href="#" class="button" data-role="button" data-icon="plus" onclick="javascript:addHour(1);">Add</a></td><td><h2><span id="hour">0</span></h2></td><td><a href="#" class="button" data-role="button" data-icon="minus" onclick="javascript:subtractHour(1);">Subtract</a></td></tr>
+					<tr><td><h3>Minute</h3></td><td><a href="#" class="button" data-role="button" data-icon="plus" onclick="javascript:addMinute(1);">Add</a></td><td><h2><span id="minute">0</span></h2></td><td><a href="#" class="button" data-role="button" data-icon="minus" onclick="javascript:subtractMinute(1);">Subtract</a></td></tr>
+					<tr><td><h3>Second</h3></td><td><a href="#" class="button" data-role="button" data-icon="plus" onclick="javascript:addSecond(1);">Add</a></td><td><h2><span id="second">0</span></h2></td><td><a href="#" class="button" data-role="button" data-icon="minus" onclick="javascript:subtractSecond(1);">Subtract</a></td></tr>
+				</table>
+				<select name="select-choice-0" id="select-choice-1" onchange="javascript:load(this.selectedIndex);">
+				   <option value="standard">Quick Picks</option>
+				   <option value="pregnancy">Pregnancy</option>
+				   <option value=""></option>
+				   <option value=""></option>
+				</select>
+				<a href="#" onclick="javascript:reset();" data-role="button" data-iconpos="bottom"  data-icon="back">Reset</a>
+			</div><!-- /content -->
+		
+			<div data-role="footer">
+				<a href="#two" data-role="button" data-icon="arrow-r" data-iconpos="right">Countdown</a>
+			</div><!-- /footer -->
+		</div><!-- /page -->
+		
+		<div data-role="page" id="two" data-title="manipuDATE Countdown">
+			<div data-role="header">
+				<h1>manipuDATE Countdown</h1>
+			</div><!-- /header -->
+		
+			<div data-role="content">
+				<h2><span id="count"></span></h2>
+				<form action="#" method="get">
+					<div data-role="fieldcontain">
+                    <label for="date1">Date</label>
+                    <input type="text" name="date1" id="date1" class="mobiscroll" value="01/01/2012" />
+                </div>
+				<div data-role="fieldcontain">
+                    <label for="date2">Time</label>
+                    <input type="text" name="date2" id="date2" class="mobiscroll" readonly="readonly" value="12:00 PM" />
+                </div>
+
+				</form>	
+				<a href="#" data-role="button" data-icon="check" onclick="window['intervalId'] = setInterval('countdown()', 1000);">Countdown!</a>
+				<a href="#" onclick="javascript:resetCountdown();" data-role="button" data-iconpos="bottom"  data-icon="back">Reset</a>
+			</div><!-- /content -->
+		
+				<div data-role="footer">
+					<a href="#one" data-role="button" data-icon="arrow-l" style="width">Calculator</a>
+				</div><!-- /navbar -->
+			</div><!-- /footer -->
+		</div><!-- /page -->				
+	</body>
+</html>
